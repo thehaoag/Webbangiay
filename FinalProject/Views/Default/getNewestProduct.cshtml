@@ -1,0 +1,22 @@
+﻿@model List<FinalProject.Models.Product>
+@foreach (var item in Model)
+{
+    <!-- Product -->
+
+    <div class="product-item sp-@item.CatID">
+        <div class="product product_filter">
+            <div class="product_image">
+                <img src="/Content/images/@item.Image" alt="">
+            </div>
+            <div class="favorite"></div>
+            <div class="product_info">
+                <h6 class="product_name"><a href="/Category/Product/@item.ID">@item.Name</a></h6>
+                <div class="product_price">$@item.Price</div>
+
+            </div>
+
+        </div>
+
+        <div class="red_button add_to_cart_button"><a href="/Category/Product/@item.ID">add to cart</a></div>
+    </div>
+}

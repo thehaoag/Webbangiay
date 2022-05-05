@@ -1,0 +1,127 @@
+﻿@model FinalProject.Models.Product
+@{
+    ViewBag.Title = "Product";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+@using (Html.BeginForm("Buy_Product", "Category", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="container single_product_container">
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="single_product_pics">
+                    <div class="row">
+                        <div class="col-lg-9 image_col order-lg-2 order-1">
+                            <div class="single_product_image">
+                                <div class="single_product_image_background" style="background-image: url(/Content/images/@Model.Image )"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" id="CusID" name="CusID" value="@Session["customer_id"]">
+            <div class="col-lg-5">
+                <div class="product_details">
+                    <div class="product_details_title">
+                        <input type="hidden" id="Name" name="Name" value="@Model.Name">
+                        <h2>@Model.Name</h2>
+                        <input type="hidden" id="CatID" name="CatID" value="@Model.CatID">
+                        <p>@Model.Detail</p>
+                    </div>
+                    <div class="free_delivery d-flex flex-row align-items-center justify-content-center">
+                        <span class="ti-truck"></span><span>free delivery</span>
+                    </div>
+                    <input type="hidden" id="Price" name="Price" value="@Model.Price">
+                    <div class="product_price">$@Model.Price</div>
+                    <ul class="star_rating">
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                        <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                    </ul>
+                    <div class="product_color">
+                        <span><b>Color:</b></span>
+                        <div>@Model.Color</div>
+                    </div>
+                    <div class="mg-t27 d-flex flex-column flex-sm-row align-items-sm-center">
+                        <span><b>Size:</b></span>
+                        <ul class="mg-2">
+                            @{
+                                string[] size = Model.Size.Split(',');
+                            }
+                            @foreach (var i in size)
+                            {
+                                <li class="grid_sorting_button">@i</li>
+                            }
+                        </ul>
+                    </div>
+                    <div class="mg-t27 d-flex flex-column flex-sm-row align-items-sm-center">
+                        <input type="submit" value="ADD TO CART" class="red_button add_to_cart_button text_button" />
+                        <div class="product_favorite d-flex flex-column align-items-center justify-content-center"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Benefit -->
+
+        <div class="benefit">
+            <div class="container">
+                <div class="row benefit_row">
+                    <div class="col-lg-3 benefit_col">
+                        <div class="benefit_item d-flex flex-row align-items-center">
+                            <div class="benefit_icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
+                            <div class="benefit_content">
+                                <h6>free shipping</h6>
+                                <p>Suffered Alteration in Some Form</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 benefit_col">
+                        <div class="benefit_item d-flex flex-row align-items-center">
+                            <div class="benefit_icon"><i class="fa fa-money" aria-hidden="true"></i></div>
+                            <div class="benefit_content">
+                                <h6>cach on delivery</h6>
+                                <p>The Internet Tend To Repeat</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 benefit_col">
+                        <div class="benefit_item d-flex flex-row align-items-center">
+                            <div class="benefit_icon"><i class="fa fa-undo" aria-hidden="true"></i></div>
+                            <div class="benefit_content">
+                                <h6>45 days return</h6>
+                                <p>Making it Look Like Readable</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 benefit_col">
+                        <div class="benefit_item d-flex flex-row align-items-center">
+                            <div class="benefit_icon"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
+                            <div class="benefit_content">
+                                <h6>opening all week</h6>
+                                <p>8AM - 09PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<link rel="stylesheet" href="../../Content/plugins/themify-icons/themify-icons.css">
+<link rel="stylesheet" type="text/css" href="../../Content/plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="../../Content/styles/single_styles.css">
+<link rel="stylesheet" type="text/css" href="../../Content/styles/single_responsive.css">
+<script src="../../Content/js/jquery-3.2.1.min.js"></script>
+<script src="../../Content/styles/bootstrap4/popper.js"></script>
+<script src="../../Content/styles/bootstrap4/bootstrap.min.js"></script>
+<script src="../../Content/plugins/Isotope/isotope.pkgd.min.js"></script>
+<script src="../../Content/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="../../Content/plugins/easing/easing.js"></script>
+<script src="../../Content/plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
+<script src="../../Content/js/single_custom.js"></script>
+
+

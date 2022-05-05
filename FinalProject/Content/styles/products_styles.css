@@ -1,0 +1,28 @@
+﻿body {
+}
+
+.jc_center {
+    justify-content: center;
+}
+
+.page_current {
+    display: inline-block;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+    text-align: center;
+    border: solid 1px #ecedee;
+    margin-right: 16px;
+}
+
+.page_current.active {
+    color: white;
+    font-weight: bold;
+    background-color: red;
+}
+
+.pagination-container {
+    margin-top: 1rem;
+}

@@ -1,0 +1,26 @@
+﻿@model FinalProject.Models.User
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLogin.cshtml";
+}
+
+
+<div class="login-block">
+    <h1 style="font-size: 30px;">Login</h1>
+    @using (Html.BeginForm("Login", "Auth", FormMethod.Post))
+    {
+        @Html.TextBoxFor(model => model.UserName, null, new { @class = "form-control", @placeholder = "UserName", @type = "text" })
+
+        @Html.TextBoxFor(model => model.Password, null, new { @class = "form-control", @placeholder = "Password", @type = "password" })
+        <button>Submit</button>
+    }
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-danger">
+            <strong>Error: </strong>@ViewBag.Message
+        </div>
+    }
+</div>
+
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="~/Areas/Admin/Content/styles/LoginAdmin.css">

@@ -1,0 +1,26 @@
+﻿@model List<FinalProject.Models.Order>
+
+@foreach (var i in Model)
+{
+<tr>
+    <td>@i.Name</td>
+    <td>@Html.Action("NameCategory", "Orders", new { catid = @i.CatID })</td>
+    <td>$@i.Price</td>
+    <td>@i.Created_date</td>
+    @if (i.Status == 0)
+    {
+        <td><div class="btn btn-danger">Chờ xác nhận</div></td>
+    }
+    @if (i.Status == 1)
+    {
+        <td><div class="btn btn-warning">Đang giao</div></td>
+    }
+    @if (i.Status == 2)
+    {
+        <td><div class="btn btn-success">Đã giao</div></td>
+    }
+
+</tr>
+}
+
+

@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+<div class="container contact_container">
+    <h1 class="col text-center" style="font-size: 40px; font-weight: 500;">ORDERS LIST</h1>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Customer</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Created_date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{ Html.RenderAction("getOrders", "Orders");}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</h1>
+
+<link rel="stylesheet" type="text/css" href="~/Content/styles/table_orders.css">
+<link rel="stylesheet" type="text/css" href="~/Content/plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="~/Content/styles/contact_styles.css">
+<link rel="stylesheet" type="text/css" href="~/Content/styles/contact_responsive.css">
+

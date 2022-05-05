@@ -1,0 +1,92 @@
+﻿@model PagedList.IPagedList<FinalProject.Models.Product>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="page-breadcrumb">
+                            <div class="row align-items-center">
+                                <div class="col-md-6 col-8 align-self-center">
+                                    <h4 class="card-title"><b>PRODUCTS</b></h4>
+                                </div>
+                                <div class="col-md-6 col-4 align-self-center">
+                                    <div class="text-end upgrade-btn">
+                                        @Html.ActionLink("ADD PRODUCT", "Create", "Products",
+                                            null, new { @class = "btn btn-success d-none d-md-inline-block text-white" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table user-table no-wrap">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Name
+                                        </th>
+                                        <th>
+                                            Category
+                                        </th>
+                                        <th>
+                                            Image
+                                        </th>
+                                        <th>
+                                            Price
+                                        </th>
+                                        <th>
+                                            Tools
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td style="vertical-align: middle">
+                                                @item.Name
+                                            </td>
+                                            <td style="vertical-align: middle">
+                                                @Html.Action("NameCategory", "Products", new { catid = @item.CatID })
+                                            </td>
+                                            <td>
+                                                <img src="~/Content/images/@item.Image" width="150" />
+                                            </td>
+                                            <td style="vertical-align: middle">
+                                                $@item.Price
+                                            </td>
+                                            <td style="vertical-align: middle">
+                                                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                                                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                                                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), new PagedListRenderOptions
+                            {
+                                DisplayLinkToIndividualPages = true,
+                                DisplayPageCountAndCurrentLocation = false,
+                                MaximumPageNumbersToDisplay = 5,
+                                UlElementClasses = new string[] { "pagination jc_center" },
+                                LiElementClasses = new string[] { "page_current" },
+                            })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer text-center">
+        © 2021 Monster Admin by <a href="https://www.wrappixel.com/">wrappixel.com</a>
+    </footer>
+</div>
+
+<link rel="stylesheet" type="text/css" href="~/Content/styles/products_styles.css">
+

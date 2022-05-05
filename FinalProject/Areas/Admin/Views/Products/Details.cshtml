@@ -1,0 +1,88 @@
+﻿@model FinalProject.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title"><b>DETAILS PRODUCT</b></h4>
+
+                        <div>
+                            <hr />
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    Category
+                                </dt>
+
+                                <dd>
+                                    @Html.Action("NameCategory", "Products", new { catid = Model.CatID })
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Name)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Name)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Detail)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Detail)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Image)
+                                </dt>
+
+                                <dd>
+                                    <img src="~/Content/images/@Model.Image" width="150">
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Price)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Price)$
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Color)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Color)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Size)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Size)
+                                </dd>
+
+                            </dl>
+                        </div>
+                        <p>
+                            @Html.ActionLink("EDIT", "Edit", new { id = Model.ID }, new { @class = "btn btn-success d-none d-md-inline-block text-white" }) |
+                            @Html.ActionLink("BACK", "Index", "Product", new { @class = "btn btn-danger text-white" })
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer text-center">
+        © 2021 Monster Admin by <a href="https://www.wrappixel.com/">wrappixel.com</a>
+    </footer>
+</div>

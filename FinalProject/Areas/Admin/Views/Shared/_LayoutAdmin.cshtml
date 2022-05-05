@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta name="keywords"
+          content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Monsterlite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Monster admin lite design, Monster admin lite dashboard bootstrap 5 dashboard template">
+    <meta name="description"
+          content="Monster Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
+    <meta name="robots" content="noindex,nofollow">
+    <link rel="canonical" href="https://www.wrappixel.com/templates/monster-admin-lite/" />
+    <link rel="icon" type="image/png" sizes="16x16" href="~/Areas/Admin/Content/images/favicon.png">
+    <link href="~/Areas/Admin/Content/plugins/chartist/dist/chartist.min.css" rel="stylesheet">
+    <link href="~/Areas/Admin/Content/styles/style.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+         data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+
+        @Html.Partial("_MainMenu")
+
+        @RenderBody()
+
+    </div>
+    
+
+    <script src="~/Areas/Admin/Content/plugins/jquery/dist/jquery.min.js"></script>
+    <script src="~/Areas/Admin/Content/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Areas/Admin/Content/js/app-style-switcher.js"></script>
+    <script src="~/Areas/Admin/Content/js/waves.js"></script>
+    <script src="~/Areas/Admin/Content/js/sidebarmenu.js"></script>
+    <script src="~/Areas/Admin/Content/js/custom.js"></script>
+    <script src="~/Areas/Admin/Content/plugins/flot/jquery.flot.js"></script>
+    <script src="~/Areas/Admin/Content/plugins/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+    <script src="~/Areas/Admin/Content/js/pages/dashboards/dashboard1.js"></script>
+</body>
+</html>
